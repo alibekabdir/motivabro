@@ -3,7 +3,11 @@ from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes, Messa
 import random
 import os
 
-TOKEN = os.getenv("7905966141:AAEdp0j4BOWBMo4IUc6ELokQ_MvvtxBLvK0")
+# Получаем токен из переменной окружения
+TOKEN = os.getenv("TELEGRAM_TOKEN")
+
+if not TOKEN:
+    raise ValueError("Token not set in environment variables")
 
 quotes = ["Ты не обязан быть лучше всех. Но ты обязан быть лучше себя вчерашнего."]
 challenges = ["Сделай 10 отжиманий сразу после этой цитаты 💪"]
